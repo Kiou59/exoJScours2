@@ -16,8 +16,10 @@ let listOfStudents = document.querySelector('#studentsList');
 fetch("https://pachyderme.net/students.json")
 .then(response =>response.json())
 .then(function(myJson){
-console.log(myJson.students)
+console.log(myJson.students[15]["firstname.latin"])
+
 var students =myJson.students;
+
 students.forEach(student => {
     studentCard = document.createElement('div');
     studentCard.className="card"
@@ -26,11 +28,19 @@ studentName.className='card-title'
 studentInfo =document.createElement('div');
 studentInfo.className = 'card-text'
 studentInfo.innerHTML =`sexe :${student.sex}`
+studentGit =document.createElement('div');
+studentGit.className = 'card-text'
+studentGit.innerHTML =student.githubid
 
-    studentName.innerHTML=student.firstname +' '+student.lastname
     studentCard.appendChild(studentName)
     studentCard.appendChild(studentInfo)
+    studentCard.appendChild(studentGit)
     listOfStudents.appendChild(studentCard)
+    if(student['firstname.latin']==null){
+        studentName.innerHTML= student.firstname +' '+student.lastname
+    }else{
+        studentName.innerHTML= student['firstname.latin'] +' '+student['lastname.latin']
+    }    
 });
     });
 
