@@ -10,3 +10,27 @@ fetch("https://www.wikipedia.org/portal/wikipedia.org/assets/img/Wikipedia-logo-
     });
 
 });
+
+// exo2
+let listOfStudents = document.querySelector('#studentsList');
+fetch("https://pachyderme.net/students.json")
+.then(response =>response.json())
+.then(function(myJson){
+console.log(myJson.students)
+var students =myJson.students;
+students.forEach(student => {
+    studentCard = document.createElement('div');
+    studentCard.className="card"
+studentName =document.createElement('div');
+studentName.className='card-title'
+
+    studentName.innerHTML=student.firstname +' '+student.lastname
+    studentCard.appendChild(studentName)
+    listOfStudents.appendChild(studentCard)
+    
+    
+    
+});
+        
+    });
+    
