@@ -25,7 +25,7 @@ studentName =document.createElement('div');
 studentName.className='card-title'
 studentInfo =document.createElement('div');
 studentInfo.className = 'card-text'
-studentInfo.innerHTML =`sex :${student.sex}`
+studentInfo.innerHTML =`sexe :${student.sex}`
 
     studentName.innerHTML=student.firstname +' '+student.lastname
     studentCard.appendChild(studentName)
@@ -43,12 +43,12 @@ const pop =document.querySelector("#popName")
 
 add.addEventListener("click",function(event){
     let inputValue=input.value
-    localStorage.setItem("storageName",inputValue)
+    localStorage.setItem("storageName",JSON.stringify(inputValue))
 
     input.value=''
 })
 pop.addEventListener("click",function(event){
-    frontName.innerHTML=localStorage.getItem("storageName")
+    frontName.innerHTML=JSON.parse(localStorage.getItem("storageName"))
 })
 rmv.addEventListener("click",function(event){
     frontName.innerHTML=''
