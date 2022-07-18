@@ -1,0 +1,9 @@
+.card {
+    width: 18rem;
+    margin: 2px;
+}
+
+#studentsList {
+    display: flex;
+    flex-wrap: wrap;
+}

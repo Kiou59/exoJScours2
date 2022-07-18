@@ -23,9 +23,13 @@ students.forEach(student => {
     studentCard.className="card"
 studentName =document.createElement('div');
 studentName.className='card-title'
+studentInfo =document.createElement('div');
+studentInfo.className = 'card-text'
+studentInfo.innerHTML =`sex :${student.sex}`
 
     studentName.innerHTML=student.firstname +' '+student.lastname
     studentCard.appendChild(studentName)
+    studentCard.appendChild(studentInfo)
     listOfStudents.appendChild(studentCard)
     
     
