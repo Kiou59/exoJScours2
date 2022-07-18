@@ -31,10 +31,26 @@ studentInfo.innerHTML =`sex :${student.sex}`
     studentCard.appendChild(studentName)
     studentCard.appendChild(studentInfo)
     listOfStudents.appendChild(studentCard)
-    
-    
-    
 });
-        
     });
-    
+
+// exo 3
+const input = document.querySelector("#newName")
+const frontName =document.querySelector("#name")
+const add =document.querySelector("#addName")
+const rmv = document.querySelector("#rmvName")
+const pop =document.querySelector("#popName")
+
+add.addEventListener("click",function(event){
+    let inputValue=input.value
+    localStorage.setItem("storageName",inputValue)
+
+    input.value=''
+})
+pop.addEventListener("click",function(event){
+    frontName.innerHTML=localStorage.getItem("storageName")
+})
+rmv.addEventListener("click",function(event){
+    frontName.innerHTML=''
+    localStorage.removeItem("storageName")
+})
